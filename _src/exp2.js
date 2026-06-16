@@ -80,6 +80,28 @@ var EXP2 = {
 "gy84": R`$\xi=1$: $Q(x)=x^2-8x+15$ (Horner-hányados), $Q(3)=9-24+15=0$; $P''(1)=2!\cdot(-6)=-12$. $(Q(3)+\tfrac12)\cdot P''(1)=(0+0{,}5)\cdot(-12)=\mathbf{-6}$.`,
 "gy111": R`$p=x^3+4x^2-x$: itt $a_0=0$, tehát $0$ gyök, és alsó korlát ($r$) nincs. $R=1+\frac{\max(|4|,|-1|,|0|)}{|1|}=1+4=5$, így $|x_k|<5$ → <b>b)</b>. (a) és c) az alsó korlátot is állítják — az $a_0=0$ miatt nem áll.`,
 "gy159": R`$a_n=\tfrac1n$, $a_0=2$, $a_1=1$. $R=1+\frac{\max_{0..n-1}|a_i|}{|a_n|}=1+\frac{2}{1/n}=1+2n$; $r=\frac{1}{1+\frac{\max_{1..n}|a_i|}{|a_0|}}=\frac{1}{1+1/2}=\tfrac23$. $\frac{R-1}{r}=\frac{2n}{2/3}=\mathbf{3n}$.`,
-"gy177": R`A teljes táblázat szintjei rendre $n,\,n{-}1,\,\dots,\,1$ összeadást igényelnek, összesen $n+(n-1)+\dots+1=\frac{n(n+1)}{2}$ → <b>c)</b>.`
+"gy177": R`A teljes táblázat szintjei rendre $n,\,n{-}1,\,\dots,\,1$ összeadást igényelnek, összesen $n+(n-1)+\dots+1=\frac{n(n+1)}{2}$ → <b>c)</b>.`,
+
+/* ---------- Numerikus integrálás (kvadratúra) ---------- */
+"gy1": R`<b>Nem igaz: b)</b> $A_k=\sum E_j(x)$ — a súly $A_k=\int_a^b\ell_k(x)\,dx$ (c igaz). Igaz: a (a súlyok csak az alappontoktól és $[a,b]$-től függenek), d ($\sum A_k=b-a$).`,
+"gy11": R`<b>Nem igaz: b)</b> $A_k=\int\ell_k^2$ — helyesen $A_k=\int\ell_k(x)\,dx$ (NÉGYZET nélkül, c). Igaz: a ($P_n$-en pontos), d ($\sum A_k=b-a$).`,
+"gy13": R`Interpolációs típushoz pontosnak kell lennie $f\equiv1$-re: $\int_{-3}^2 1=5$. A formula $5(A+\tfrac{25}{36}+\tfrac1{12})=5\Rightarrow A+\tfrac{25}{36}+\tfrac3{36}=1\Rightarrow A=1-\tfrac{28}{36}=\tfrac{8}{36}=\tfrac29$ → <b>c)</b>.`,
+"gy14": R`A momentumok $[0,1]$-en: $\sum A_k=\int_0^1 1=1$ ✓(a), $\sum A_k x_k=\int_0^1 x=\tfrac12$ ✓(b), $\sum A_k x_k^2=\int_0^1 x^2=\tfrac13$. Tehát a c) ($=1$) <b>nem igaz</b> (helyesen $\tfrac13$).`,
+"gy39": R`Lokális maximumban $f'(x_k)=0$, ezért: a) az érintő vízszintes ✓; b) a Newton-lépés $x_k-\frac{f}{f'}$ nem értelmezett ($0$-val osztanánk), nem folytatható ✓; c) $f'(x_k)=0$ ✓. Mindegyik → <b>d)</b>.`,
+"gy85": R`Az $f\equiv x$-re való pontosságból: $\sum A_k x_k=\int_a^b x\,dx=\frac{b^2-a^2}{2}$ → <b>c)</b>. ($\sum A_k=b-a$, nem $\frac{b^2-a^2}{2}$ — ezért a,b,d rossz.)`,
+"gy112": R`Mindegyik helyes → <b>d)</b>: a) és b) az összetett Simpson ($1,4,2,\dots,4,1$ súlyozású) ekvivalens felírásai, c) a Richardson-azonosság $S_m=\frac{4T_{2m}-T_m}{3}$.`,
+"gy114": R`<b>b)</b> — az érintő hibaformulája $E(f)+\frac{f''(\eta)}{24}(b-a)^3$ (egzisztencia-tétel, EGY $\eta\in[a,b]$ értékkel), nincs benne integrál. A jobb oldali $\int\dots dx$ tehát felesleges/hibás.`,
+"gy128": R`A Simpson pontossági foka 3, az integrandus ($x^3-x+1$) HARMADfokú → a Simpson PONTOS → a hiba <b>0</b> (a).`,
+"gy129": R`Páros $n=4$ (5 pont) → a zárt Newton–Cotes pontos $n+1=5$ fokig, így az $x^5-2x^2+1$ ötödfokú integrandust elvileg PONTOSAN integrálja (hiba $0$). <i>(A megadott kulcs $1$ — ez vélhetően a páros-$n$ szuperkonvergencia figyelmen kívül hagyásából ered; az elmélet szerint a hiba 0.)</i>`,
+"gy132": R`<b>c)</b> az egzakt hibatétel: $\exists\xi:\ \int_a^b f-E(f)=\frac{f''(\xi)}{24}(b-a)^3$. a) hibás ($M_2=\min$ helyett $\max$ kell). (b a $\max|f''|$-vel valójában szintén érvényes felső korlát, de c a pontos tétel; d hamis, mert a hibás.)`,
+"gy138": R`Az érintő- (középponti) formula: $E(f)=(b-a)\cdot f\!\left(\frac{a+b}{2}\right)$ → <b>a)</b>. A $\tfrac{b-a}{2}$ szorzó a trapézé lenne; c,d rossz argumentumú.`,
+"gy161": R`Az összetett trapéz hibája $O(1/m^2)$. $m\to4m$ esetén a hiba $\frac{1}{4^2}=\frac{1}{16}$-szorosára csökken → <b>d)</b> tizenhatodára.`,
+"gy164": R`Páros $n=10$ → a nyílt Newton–Cotes pontos $n+1=11$ fokig; az $x^{11}-x^3-x+1$ integrandus (11. fok) így PONTOSAN integrálódik → a hiba <b>0</b> (a).`,
+"gy167": R`<b>Nem helyes: c)</b> $S_m=\frac{4T_{2m}+T_m}{3}$ — a Richardsonban MÍNUSZ van: $S_m=\frac{4T_{2m}-T_m}{3}$. a) és b) az összetett Simpson helyes alakjai.`,
+"gy169": R`A trapézhiba $-\frac{(b-a)^3}{12}f''$, az érintőé $+\frac{(b-a)^3}{24}f''$; különbségük abszolút értéke $\le\left(\frac1{12}+\frac1{24}\right)M_2(b-a)^3=\frac18 M_2(b-a)^3$ → <b>b)</b>.`,
+"gy185": R`$A_k=\int\ell_k$ → a formula <b>interpolációs típusú</b>, ezért pontos minden $\le n$-edfokú polinomra, és $\sum A_k=b-a$. Mindegyik igaz → <b>d)</b>.`,
+"gy197": R`<b>HAMIS: a)</b> — $[-1,1]$-en $\sum A_k=\int_{-1}^1 1\,dx=2$ (nem $1$). Igazak: b ($A_0=A_2$ szimmetria), c (a 3-pontos zárt NC $[-1,1]$-en épp a Simpson), d (a Simpson pontos 3. fokig).`,
+"gy221": R`A görbe alatti területet szakaszonként trapézokkal közelítjük → <b>összetett trapéz formula</b>.`,
+"gy223": R`<b>c)</b> $S_m=\frac{4T_{2m}-T_m}{3}$ (Richardson, $m$ páros) igaz. a) hamis: a trapéz ZÁRT (nem nyílt) NC; d) hamis: a $\frac{16S_{2m}-S_m}{15}$ a Simpson következő Richardson-szintje, nem $T$.`
 
 };
