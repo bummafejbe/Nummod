@@ -281,6 +281,12 @@ function buildPracticeCard(q){
     rev2.appendChild(fa);card.appendChild(rev2);
   }
 
+  // magyarázat (ha van EXP2[qid])
+  if(typeof EXP2!=="undefined" && EXP2[qid]){
+    var revEl=card.querySelector(".reveal");
+    if(revEl){var why=el("div","why");why.innerHTML=expandConcepts(EXP2[qid]);revEl.appendChild(why);}
+  }
+
   var btns=el("div","btns");
   var showBtn=el("button","btn show-btn","Mutasd a választ");
   showBtn.addEventListener("click",function(){card.classList.toggle("show");showBtn.textContent=card.classList.contains("show")?"Elrejt":"Mutasd a választ";});

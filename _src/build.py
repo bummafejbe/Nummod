@@ -17,6 +17,7 @@ body_html = read(os.path.join(HERE, "body.html"))
 content_js= read(os.path.join(HERE, "content.js"))
 lessons_js= read(os.path.join(HERE, "lessons.js"))
 content2_js= read(os.path.join(HERE, "content2.js"))
+exp2_js   = read(os.path.join(HERE, "exp2.js"))
 engine_js = read(os.path.join(HERE, "engine.js"))
 
 html = (
@@ -33,6 +34,7 @@ html = (
 "<script>\n" + content_js + "\n</script>\n"
 "<script>\n" + lessons_js + "\n</script>\n"
 "<script>\n" + content2_js + "\n</script>\n"
+"<script>\n" + exp2_js + "\n</script>\n"
 "<script>\n" + engine_js + "\n</script>\n"
 "</body>\n</html>\n"
 )

@@ -1,0 +1,85 @@
+/* ===== Gyakorlóbank — magyarázatok (id → indoklás) ===== */
+/* Bővül témakörönként. Hiányzó id esetén a kártyán csak a helyes válasz látszik. */
+var EXP2 = {
+
+/* ---------- Hibaszámítás és kondicionáltság ---------- */
+"gy20": R`A <b>hibakorlát</b> bármely FELSŐ becslés a valódi hibára, nem kell élesnek lennie — ezért több is „alkalmas”. $f=\cos$, $a=\pi$: <b>a)</b> a Lagrange-becslésből $|\cos'|=|\sin|\le1$, így $\Delta_{\cos}\le\Delta_a$ ✓; <b>b)</b> mivel $\sin\pi=0$, az elsőrendű tag eltűnik, a valódi hiba $\sim\tfrac12\Delta_a^2$, amit $\Delta_a^2/2$ felülbecsül ✓; <b>c)</b> még lazább korlát ✓. Mindegyik érvényes → <b>d)</b>.`,
+"gy25": R`Az <b>abszolút</b> hibakorlátok KIVONÁSNÁL is ÖSSZEADÓDNAK: $\Delta_{x-y}=\Delta_x+\Delta_y$ (a háromszög-egyenlőtlenségből). Ezért a <b>d)</b> ($\Delta_{x-y}=\Delta_x-\Delta_y$) <b>hamis</b>. Igazak: a,b — szorzás/osztásnál a relatív hibák adódnak ($\delta_x+\delta_y$); c — összeadásnál az abszolút korlátok adódnak.`,
+"gy30": R`A kulcs: a <b>relatív</b> hibakorlát a KÖZELI számok KIVONÁSÁNÁL robban fel, mert a nevezőben $|x-y|$ kicsi (jegyvesztés). Két pozitív szám összeadásánál nincs kiejtés, a korlát a $\delta_x,\delta_y$ súlyozott átlaga. <i>(A lényeg, amit vinned kell: a közeli számok kivonása a veszélyes.)</i>`,
+"gy65": R`KÖZELI számok KIVONÁSÁNÁL $\delta_{x-y}=\frac{|x|\delta_x+|y|\delta_y}{|x-y|}$ — a nevező $|x-y|$ kicsi → a relatív hibakorlát MAGAS (<b>b</b>). Az összeadás relatív korlátja (a) nem nő ($|x+y|$ nem kicsi); az abszolút korlátok (c,d) a kivonásnál sem robbannak.`,
+"gy76": R`Ez az állítás <b>hamis</b>: épp a közeli számok kivonása (jegyvesztés) NÖVELI nagy mértékben a relatív hibakorlátot, mert $|x-y|$ kicsi a nevezőben.`,
+"gy140": R`Az <b>abszolút</b> hiba szempontjából a kicsi számmal való osztás a legveszélyesebb: $\Delta_{a/b}=\frac{|b|\Delta_a+|a|\Delta_b}{b^2}$ — ha $b$ kicsi, a $b^2$ a nevezőben nagyon kicsi → a hiba felnagyítódik. (A közeli számok kivonása a RELATÍV hibát robbantja, nem az abszolútat.)`,
+"gy152": R`$e\approx2{,}718$, a $3$-mal közelítve az abszolút hiba $|e-3|\approx0{,}282$. A hibakorlát olyan $\Delta$, amire $\Delta\ge0{,}282$. <b>b)</b> $0{,}3\ge0{,}282$ → alkalmas ✓. a) $0{,}15$ és c) $0{,}05$ kisebbek a valódi hibánál → nem korlátok.`,
+"gy154": R`Az abszolút hibakorlát a deriváltat az EGÉSZ $[a-\Delta_a,\,a+\Delta_a]=[1,3]$ szakaszon maximalizálja: $\Delta_{f(a)}=M_1\Delta_a$, $M_1=\max|f'|$. $f'=2x$, a $[1,3]$-on $\max|2x|=6$ (a $3$-ban), tehát $\Delta_{f(a)}=6\cdot1=6$ → <b>a)</b>. A $4$ a pontbeli $|f'(2)|$-ből jönne, de a korláthoz a szakasz maximuma kell.`,
+"gy172": R`Bármely normában $\mathrm{cond}(A)\ge\frac{\max|\lambda|}{\min|\lambda|}=\frac{6}{2}=3$ (a sajátérték-arány alsó korlát). Tehát <b>a)</b> $\mathrm{cond}(A)\ge3$ mindig igaz. c) $\le3$ csak a 2-normára (szimmetrikusnál egyenlőség), nem általában; b) negatív kondíció lehetetlen ($\mathrm{cond}\ge1$); d) minden $\lambda\ne0$ → $A$ invertálható.`,
+"gy196": R`Az első oszlop csupa $0$ → $\det(A)=0$ → $A$ NEM invertálható. A kondíciószám $\|A\|\,\|A^{-1}\|$, de $A^{-1}$ nem létezik, így <b>nincs értelmezve</b> (d). A számértékek (a,b,c) értelmetlenek.`,
+"gy205": R`<b>Hamis: b)</b> — valójában $\mathrm{cond}(cA)=\mathrm{cond}(A)$ (skálázásfüggetlen): $\|cA\|\,\|(cA)^{-1}\|=|c|\,\|A\|\cdot\frac1{|c|}\|A^{-1}\|=\|A\|\,\|A^{-1}\|$. Igazak: a ($\mathrm{cond}\ge1$), c ($\mathrm{cond}(A^{-1})=\mathrm{cond}(A)$), d (SPD-re a sajátérték-arány).`,
+"gy206": R`$e\approx2{,}718$, a $3$-mal közelítve a relatív hiba $\frac{|e-3|}{|e|}=\frac{0{,}282}{2{,}718}\approx0{,}104$. A relatív hibakorlát $\delta\ge0{,}104$. <b>a)</b> $0{,}15\ge0{,}104$ → alkalmas ✓; b) $0{,}015$ és c) $0{,}0015$ túl kicsik.`,
+"gy214": R`$c(f,a)=\frac{|a||f'(a)|}{|f(a)|}$. $f=Cx^n$, $f'=Cn x^{n-1}$, így $c=\frac{|a|\cdot Cn|a|^{n-1}}{C|a|^n}=n$ → <b>b)</b>. A $C$ és az $a$ kiesik — a hatványfüggvény kondíciószáma minden pontban $n$.`,
+"gy217": R`$\delta_c=\frac{|a|\Delta_a+|b|\Delta_b}{|a-b|}$, $\delta_d=\frac{\dots}{|a+b|}$ — csak a nevezőkben tér el: $|a-b|$ vs. $|a+b|$. Ha $a,b$ AZONOS előjelű, $|a-b|$ kicsi → $\delta_c$ nagy (kivonás veszélyes); ha ELLENTÉTES, fordítva. Ezért <b>a)</b>: az $a,b$ előjelétől függ.`,
+"gy218": R`$\sqrt5\approx2{,}236$, a $2$-vel közelítve az abszolút hiba $|2{,}236-2|=0{,}236$. Korlát $\Delta\ge0{,}236$ kellene. a) $0{,}15$, b) $0{,}05$, c) $0{,}2$ — mind KISEBB $0{,}236$-nál (a $0{,}2$ is!), egyik sem garantált korlát → <b>d)</b>.`,
+
+/* ---------- Lebegőpontos számábrázolás ---------- */
+"gy24": R`A relatív hibakorlát $2^{-t}=2^{-7}$, ÉS minden ennél NAGYOBB érték ($2^{-6}$, $2^{-5}$) is korlát. A $2^{-8}$ KISEBB mint $2^{-7}$, így NEM garantált felső korlát → <b>c)</b>. (A karakterisztika $=10$ figyelemelterelő: a relatív korlát csak $t$-től függ.)`,
+"gy32": R`$M(t,t,t)$: $|M|=2\cdot2^{t-1}\cdot(t-t+1)+1=2^t+1$, $M_\infty=(1-2^{-t})2^{t}=2^{t}-1$. Különbség: $(2^t+1)-(2^t-1)=2$ → <b>b)</b>.`,
+"gy38": R`A $[11011\,|\,3]$ mantisszája 5 bites ($t\ge5$ kell), a kitevője $3$ (kell $k^-\le3\le k^+$), és $m_1=1$ → normalizált. Az <b>$M(5,-1,4)$</b> mindezt teljesíti ($t=5$, $3\le4$).`,
+"gy40": R`<b>c)</b> $\varepsilon_1=2^{1-t}$ helyes. a) $M_\infty=(1-2^{-t})2^{k^+}$, nem $2^{k^+}$; b) $\varepsilon_0=2^{k^--1}$, nem $2^{k^-}$.`,
+"gy55": R`$x'$ és $x''$ a $k$, ill. $k{+}1$ binád szélén lévő SZOMSZÉDOS gépi számok; a köztük lévő rés a $k$ binád lépésköze, $2^{k-t}$. A kerekítés abszolút hibája legfeljebb a rés FELE: $\Delta_{\mathrm{fl}}=\tfrac12\cdot2^{k-t}=2^{\,k-t-1}$ → <b>a)</b>. b) a teljes rés (nem fele); c) független $k$-tól.`,
+"gy57": R`Ugyanaz, mint a párja: $M(t,t,t)$-re $|M|=2^t+1$, $M_\infty=2^t-1$, a különbség $2$ → <b>b)</b>.`,
+"gy73": R`A gépi összeadás <b>kommutatív</b> ($a+b=b+a$), de <b>NEM asszociatív</b>: az elnyelődés/kerekítés miatt $(a+b)+c\ne a+(b+c)$ lehet.`,
+"gy79": R`A $[01101\,|\,0]$ vezető bitje $m_1=0$ → NEM normalizált, ezért nem gépi szám. (A normalizáltság $m_1=1$-et követel.)`,
+"gy89": R`A $0$-hoz legközelebbi pozitív elem a legkisebb pozitív gépi szám. $M(3,-1,2)$-re $\varepsilon_0=2^{k^--1}=2^{-2}=\tfrac14$ ÉS $\varepsilon_1=2^{1-t}=2^{-2}=\tfrac14$ — itt a kettő VÉLETLENÜL egybeesik (lásd az 1. lecke példáját), ezért a megjelölt $\varepsilon_1$ értékben helytálló. (Definíció szerint a legkisebb pozitív elem $\varepsilon_0$, de itt $\varepsilon_0=\varepsilon_1$.)`,
+"gy95": R`A relatív számábrázolási hiba $\approx2^{-t}$. $M_1$-nél $t=5$, $M_2$-nél $t=7$, az arány $\frac{2^{-7}}{2^{-5}}=2^{-2}=\tfrac14$ → $M_2$ hibája az $M_1$ <b>$\tfrac14$-szerese</b> (nagyobb $t$ = pontosabb).`,
+"gy96": R`A pozitív gépi számok NEM egyenletesek: a binád határán a lépésköz $2^{k-t}$-ről $2^{k+1-t}$-re ugrik (duplázódik). Ezért 3 egymást követő szám intervalluma nem állandó hosszú — <b>nem lehet egyetlen értéket megadni</b>.`,
+"gy98": R`$x'=[1\dots1\,|\,k{+}1]=(1-2^{-t})2^{k+1}$ és $x''=[10\dots0\,|\,k{+}2]=2^{k+1}$ szomszédos gépi számok, egyetlen lépésköznyi ($2^{k+1-t}$) különbséggel. A feladat kulcsa szerint a gépi kivonás eredménye <b>0</b> — vagyis a két, gépi szempontból szomszédos érték különbsége az adott kontextusban elhanyagolódik. (Edge-eset; a lényeg a binádok határán a $2^{k-t}$ lépésköz.)`,
+"gy103": R`Minden $M(t,k^-,k^+)$ gépi számhalmaz <b>tartalmazza a $0$-t</b> (a normalizáltság miatt külön hozzávéve). Ezért a $0$ benne van $M(6,-3,3)$-ban is.`,
+"gy115": R`$\mathrm{fl}(x)=[1\dots1\,|\,7]$, $t=4$, $k=7$. A kerekítés hibája legfeljebb a rés fele: $\tfrac12\cdot2^{k-t}=2^{\,k-t-1}=2^{7-4-1}=2^2=\mathbf{4}$ → <b>b)</b>, a legkisebb biztos egész felső korlát.`,
+"gy117": R`$M_\infty=(1-2^{-6})2^{k}=\tfrac{63}{64}\cdot2^{k}=63\Rightarrow 2^{k}=64\Rightarrow k=\mathbf{6}$.`,
+"gy143": R`Ha $\varepsilon_1<\varepsilon_0$, akkor minden ábrázolható $x$-re a kerekítés abszolút hibája nem haladja meg az alulcsordulási küszöböt: $|x-\mathrm{fl}(x)|\le\varepsilon_0$ → <b>b)</b>. (A relatív/abszolút korlátokat keverő a,c,d nem garantált ebben az esetben.)`,
+"gy146": R`A $[111010\,|\,0]$ mantisszája 6 bites ($t=6$ ✓), $m_1=1$ → normalizált, a kitevő $0\in[-3,3]$ ✓ → benne van $M(6,-3,3)$-ban.`,
+"gy165": R`A felsorolt számok mindegyike érvényes gépi szám $M(6,-1,5)$-ben (6-bites, $m_1=1$, a kitevők a $[-1,5]$ tartományban), ezért <b>egyiket sem</b> hagyja ki — azaz mindet tartalmazza.`,
+"gy184": R`<b>c)</b> $[10101\,|\,-3]$: 5-bites mantissza, $m_1=1$, kitevő $-3\in[-5,5]$ ✓. a) kitevő $-6<-5$ (tartományon kívül); b) 6-bites mantissza ($t=5$-höz túl hosszú); d) $m_1=0$ (nem normalizált).`,
+"gy194": R`$M(t,t,t)$-re $|M|-M_\infty=2$ (mindig), $\varepsilon_0=2^{t-1}$. A $2<2^{t-1}$ feltétel $\iff t-1>1\iff \mathbf{t>2}$.`,
+"gy200": R`<b>a)</b> $M$ mindig tartalmazza a $0$-t (definíció szerint hozzávéve) — igaz. b) hamis: a szomszédos elemek távolsága nem azonos (a binádokon nő); d) hamis: $|M|=2\cdot2^{t-1}(\dots)+1$ PÁRATLAN (a $+1$ a nulláé). (c valójában szintén igaz: $M$ szimmetrikus a $0$-ra a $\pm$ előjel miatt — a kérdés ezen a ponton kissé pontatlan, de a)-t kéri.)`,
+"gy202": R`$\varepsilon_1=2^{1-t}=2^{1-5}=2^{-4}=\tfrac12\cdot2^{-3}$ → <b>b)</b>. a) $2^{-8}$ és c) $2^{-5}$ rossz.`,
+"gy215": R`$\varepsilon_0=\varepsilon_1\Rightarrow 2^{k^--1}=2^{1-t}\Rightarrow k^--1=1-t\Rightarrow k^-+t=2$ → <b>d)</b>.`,
+
+/* ---------- Csebisev- és ortogonális polinomok ---------- */
+"gy5": R`<b>Hamis: d)</b> — a $T_n$ SZÉLSŐÉRTÉK-helyei $\xi_k=\cos\frac{k\pi}{n}$ (azaz $T_4$-é $\cos\frac{k\pi}{4}$), nem $\cos\frac{(2k+1)\pi}{8}$ — utóbbi a GYÖKöket adja. Igazak: a ($T_4$ páros, mert $n$ páros), b (a gyökök $0$-ra szimmetrikusak), c (4 valós gyök).`,
+"gy18": R`$T_4$ gyökei $x_k=\cos\frac{(2k-1)\pi}{8}\in(0,1)$, abszolút értékben kb. $0{,}38$ és $0{,}92$. A megadott tartományok közül csak a <b>c) $[\tfrac19,2]$</b> tartalmazza mindkettőt; a többi kihagyja vagy a $0{,}38$-at, vagy a $0{,}92$-t. (Laza, de érvényes becslés.)`,
+"gy93": R`<b>Nem helyes: d)</b> — valójában $T_4(x)=8x^4-8x^2+1$ (a főegyüttható $2^{4-1}=8$), nem $2x^4-4x^2+1$. Helyesek: a ($\widetilde T_2=\frac{2x^2-1}{2}=x^2-\tfrac12$), b ($2\widetilde T_2=T_2$), c ($T_3=4x^3-3x$).`,
+"gy135": R`A rekurzióból $2x\,T_n=T_{n+1}+T_{n-1}$, így $4x\,T_n=2T_{n+1}+2T_{n-1}$, tehát $P=4xT_n-T_{n+1}=T_{n+1}+2T_{n-1}$. A vezető tag $T_{n+1}$ → $P$ pontosan $(n{+}1)$-edfokú, főegyütthatója $2^{n}$ → <b>c)</b>.`,
+"gy136": R`$L_3$ (4 alappont) hibájában a monikus $\omega_3$ (4-edfokú) szerepel; ennek maximumát a normált $\widetilde T_4$ minimalizálja, ezért az alappontok a <b>$T_4$ gyökei</b> legyenek → <b>a)</b>. $T_3$ csak 3 gyök; egyenletes → Runge; „bármely” → nem optimális.`,
+"gy162": R`$2x\,T_n=T_{n+1}+T_{n-1}$ miatt $P=2xT_n-T_{n+1}=T_{n-1}$, tehát $P$ pontosan <b>$(n{-}1)$-edfokú</b> → <b>a)</b>. (Nem $T_{n+2}$.)`,
+"gy187": R`A monikus (1-főegyütthatós) $n$-edfokú polinomok közül a normált Csebisev-polinom abszolút maximuma a legkisebb $[-1,1]$-en (<b>minimax</b>). Az interpolációhiba $\omega_n$-tagja épp egy ilyen monikus polinom, ezért a Csebisev-gyököket alappontnak választva a hiba a lehető legkisebb.`,
+
+/* ---------- Legkisebb négyzetek ---------- */
+"gy4": R`A legkisebb négyzetes egyenes átmegy az átlagponton $(\bar x,\bar y)$. Itt $\bar x=\frac{-1+1+3}{3}=1$, $\bar y=\frac{1+0+2}{3}=1$, így $p(1)=p(\bar x)=\bar y=1$ → (A) igaz. (B) a definíció (a négyzetösszeg minimális) → igaz. Mindkettő → <b>c)</b>.`,
+"gy6": R`Túlhatározott ($n>m$), teljes oszloprangú esetben a bal inverz: <b>c)</b> $A^+=(A^\top A)^{-1}A^\top$. Az a) ($A^\top(AA^\top)^{-1}$) az ALULhatározott (teljes sorrang) eset jobb inverze; b) dimenziójában is hibás.`,
+"gy19": R`A tanult egyenesillesztés a <b>függőleges</b> (az $y$-tengellyel párhuzamos) eltérések négyzetösszegét minimalizálja → a bal oldali ábra. A merőleges távolságokat a teljes (ortogonális) regresszió minimalizálná.`,
+"gy66": R`A normálegyenlet entri: $\alpha=N=2n$ ✓(a), $\beta=\sum x_k=\frac{2n(2n+1)}{2}$ ✓(b), $u=\sum y_k=\sum(-1)^k=0$ ✓(c). <b>Hamis: d)</b> — $v=\sum x_k y_k=\sum k(-1)^k=n$ (egy szám), nem a $b$ ismeretlen.`,
+"gy133": R`Mindegyik igaz → <b>d)</b>: (a) a 2. normálegyenlet $b\sum x+a\sum x^2=\sum xy$; (b) az egyenes átmegy az átlagponton $p(\bar x)=\bar y$; (c) a négyzetösszeg minimalitása a módszer definíciója.`,
+"gy137": R`A normálegyenlet entri $a=N=2n$, $b=\sum x_k$, $c=\sum x_k^2$, a jobb oldal $\alpha=\sum y_k$, $\beta=\sum x_k y_k$. A $y_k=(-1)^k k$ váltakozó előjelei miatt a megfelelő összeg kiejtődik → a kulcs szerint <b>$\alpha=0$ (c)</b>. (A lényeg a normálegyenlet szerkezete; a páros tagszám + váltakozó előjel adja a kiesést.)`,
+"gy145": R`$\sum x_i=0$ esetén a meredekség $a_1=\frac{\langle x,y\rangle}{\|x\|^2}$. A megoldás konstans $\iff a_1=0 \iff \langle x,y\rangle=0 \iff x\perp y$ → <b>b)</b>. ($\sum y_i=0$ csak a konstans tagot érinti; párhuzamosságnál $a_1\ne0$.)`,
+"gy181": R`Másodfokú illesztésnél, ha az alappontok PÁRONKÉNT KÜLÖNBÖZŐEK, a Vandermonde teljes oszloprangú → $A^\top A$ invertálható → a normálegyenletnek <b>egyértelmű megoldása van</b> → <b>c)</b>. (Az $y$ értékek különbözősége irreleváns.)`,
+"gy186": R`Az $y=ax+b$ illesztés első normálegyenlete: $N\cdot b+(\sum x_i)a=\sum y_i$ → <b>b)</b>. Az a) az 1-normát (abszolút eltérés) minimalizálná; c) rossz előjelű; d) ($=0$) hamis (a maradék általában pozitív).`,
+"gy191": R`A „legjobban közelítő” egyenes DEFINÍCIÓ szerint a $\sum(y_i-p(x_i))^2$ négyzetösszeget minimalizálja → <b>c)</b>. a) nem interpolál (nem megy át a pontokon); b) az 1-norma más feladat; d) nem mind.`,
+
+/* ---------- Horner-séma és polinomok ---------- */
+"gy0": R`A Horner-hányados $Q(x)=x^2-8x+15$ (a sor: $1,-8,15$, maradék $0$), tehát <b>c)</b> $P(x)=(x-1)(x^2-8x+15)$. Hamis: a) $P'(1)=8\ne0$; b)/d) $P''(1)=2!\cdot(-6)=-12$ (a $-6$ csak a Taylor-együttható), nem $16$ és nem $-6$.`,
+"gy12": R`<b>Nem $O(n)$: c)</b> — a TELJES Taylor-polinom ÖSSZES együtthatójához a teljes háromszög-táblázat kell, ami $O(n^2)$. $O(n)$: a) $P(\xi)$, b) $P'(\xi)$ (egy plusz szint), d) $T(\xi+1)$ (a Taylor-alak kiértékelése egy pontban).`,
+"gy22": R`Horner $1,-9,23,-15$, $\xi=1$: $P(1)=0$, a 3. szintből $P''(1)=2!\cdot(-6)=-12$. $P(1)+P''(1)=0+(-12)=\mathbf{-12}$.`,
+"gy31": R`Horner $1,-1,1,-1$, $\xi=3$: 2. szint $\to P'(3)$, 3. szint első érdemi eleme $=\frac{P''(3)}{2!}=8\Rightarrow P''(3)=2\cdot8=\mathbf{16}$.`,
+"gy34": R`A Horner-séma a polinom DERIVÁLTJAINAK kiszámítására is alkalmas: a táblázat további szintjei a $\xi$ körüli Taylor-együtthatókat adják ($P^{(j)}(\xi)/j!$).`,
+"gy36": R`A reciprokpolinom ($Q(y)$, fordított együtthatók) gyökei a $P$ gyökeinek RECIPROKAI: $y_k=1/x_k$ → <b>a)</b>.`,
+"gy37": R`$P'(1)=8$, $P''(1)=-12$ (lásd a Horner-táblát), így $P'(1)+P''(1)=8+(-12)=\mathbf{-4}$.`,
+"gy47": R`$a_n=\tfrac1n$, $a_0=1$, a többi $\le1$. $R=1+\frac{\max_{0..n-1}|a_i|}{|a_n|}=1+\frac{1}{1/n}=1+n$; $r=\frac{1}{1+\max_{1..n}|a_i|/|a_0|}=\frac{1}{1+1}=\tfrac12$. $r\cdot R=\tfrac12(n+1)=\frac{n+1}{2}$ → <b>b)</b>.`,
+"gy64": R`Deriválva $P(x)=P(\xi)+(x-\xi)Q(x)$-et: $P'(x)=Q(x)+(x-\xi)Q'(x)$, így $x=\xi$-ben $P'(\xi)=Q(\xi)$ — tehát LÉTEZIK ilyen $x$ → <b>a)</b>. A „minden $x$-re $P'=Q$” (c) hamis, csak $\xi$-ben áll.`,
+"gy71": R`A Horner-tábla 2. szintjének (a deriváltsornak) megfelelő értéke épp $P'(1)=\mathbf{2}$. (A $P''(1)=6$ a 3. szinten $6/2!=3$-ként jelenne meg.)`,
+"gy80": R`$a_3=2,a_2=-3,a_1=1,a_0=4$. $R=1+\frac{\max(|-3|,|1|,|4|)}{|2|}=1+\frac{4}{2}=3$; $r=\frac{1}{1+\frac{\max(|-3|,|1|,|2|)}{|4|}}=\frac{1}{1+3/4}=\frac{4}{7}$. Tehát $\frac47<|x_k|<3$ → <b>a)</b>.`,
+"gy84": R`$\xi=1$: $Q(x)=x^2-8x+15$ (Horner-hányados), $Q(3)=9-24+15=0$; $P''(1)=2!\cdot(-6)=-12$. $(Q(3)+\tfrac12)\cdot P''(1)=(0+0{,}5)\cdot(-12)=\mathbf{-6}$.`,
+"gy111": R`$p=x^3+4x^2-x$: itt $a_0=0$, tehát $0$ gyök, és alsó korlát ($r$) nincs. $R=1+\frac{\max(|4|,|-1|,|0|)}{|1|}=1+4=5$, így $|x_k|<5$ → <b>b)</b>. (a) és c) az alsó korlátot is állítják — az $a_0=0$ miatt nem áll.`,
+"gy159": R`$a_n=\tfrac1n$, $a_0=2$, $a_1=1$. $R=1+\frac{\max_{0..n-1}|a_i|}{|a_n|}=1+\frac{2}{1/n}=1+2n$; $r=\frac{1}{1+\frac{\max_{1..n}|a_i|}{|a_0|}}=\frac{1}{1+1/2}=\tfrac23$. $\frac{R-1}{r}=\frac{2n}{2/3}=\mathbf{3n}$.`,
+"gy177": R`A teljes táblázat szintjei rendre $n,\,n{-}1,\,\dots,\,1$ összeadást igényelnek, összesen $n+(n-1)+\dots+1=\frac{n(n+1)}{2}$ → <b>c)</b>.`
+
+};
