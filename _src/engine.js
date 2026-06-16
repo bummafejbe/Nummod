@@ -784,6 +784,7 @@ document.addEventListener("DOMContentLoaded",function(){
         box.textContent=(window.__errs.length?("ERRORS:"+window.__errs.join(" | ")):"NO_ERRORS")
         +" | markBarW="+barW+" | resetBtn="+(!!document.getElementById("resetBtn"))
         +" | exam="+examInfo
+        +" | overflow="+document.documentElement.scrollWidth+"/"+window.innerWidth
         +" | cards="+document.querySelectorAll(".card").length
         +" | orig="+document.querySelectorAll(".card.orig").length
         +" | prac="+document.querySelectorAll(".card.prac").length

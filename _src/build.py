@@ -22,7 +22,7 @@ engine_js = read(os.path.join(HERE, "engine.js"))
 html = (
 "<!doctype html>\n<html lang=\"hu\">\n<head>\n"
 "<meta charset=\"UTF-8\">\n"
-"<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n"
+"<meta name=\"viewport\" content=\"width=device-width, initial-scale=1, minimum-scale=1, viewport-fit=cover\">\n"
 "<title>Numerikus módszerek — vizsgafelkészítő</title>\n"
 "<style>\n" + katex_css + "\n</style>\n"
 "<style>\n" + app_css + "\n</style>\n"
