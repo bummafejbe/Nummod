@@ -1,0 +1,7 @@
+# build / munka-szkriptek, screenshotok, ideiglenes fájlok
+_scrape/
+
+# OS
+Thumbs.db
+.DS_Store
+*.tmp
