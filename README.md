@@ -33,8 +33,8 @@ python _src/build.py
 - `_src/engine.js` — az interakció, haladás-tárolás, KaTeX-renderelés
 - `_katex/` — beágyazott KaTeX (offline futáshoz)
 
-## Források
+## Megjegyzés
 
-- `HANDOFF.md` — az architektúra-leírás, ami alapján az oldal készült.
-- `numerikus_modszerek_vizsgakerdesek.md` — a két vizsga kérdései, megoldásai, magyarázatai.
-- `nummod ea summary/` — a 12 előadás vizsgafelkészítő összefoglalói.
+A repó csak a működő oldalt és a build-pipeline-t tartalmazza. A tananyag-források
+(`HANDOFF.md`, a vizsgakérdések és az előadás-összefoglalók) lokálisan, a repón
+kívül készültek.

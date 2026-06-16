@@ -1,6 +1,12 @@
 # build / munka-szkriptek, screenshotok, ideiglenes fájlok
 _scrape/
 
+# tananyag-források és a régi PDF-kvíz (lokálisan megmaradnak, de nem kerülnek a repóba)
+HANDOFF.md
+numerikus_modszerek_vizsgakerdesek.md
+nummod ea summary/
+quiz_limit.html
+
 # OS
 Thumbs.db
 .DS_Store
